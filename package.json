@@ -1,0 +1,49 @@
+{
+  "name": "pomodoro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "concurrently \"vite\" \"cross-env NODE_ENV=development electron .\"",
+    "build": "vite build && electron-builder",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "build": {
+    "appId": "com.pomodoro.app",
+    "productName": "Pomodoro Player",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "asarUnpack": [
+      "node_modules/yt-dlp-exec/**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "public/icon.png"
+    }
+  },
+  "dependencies": {
+    "@rolldown/binding-win32-x64-msvc": "^1.0.0-rc.16",
+    "lucide-react": "^1.8.0",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "yt-dlp-exec": "^1.0.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.1",
+    "concurrently": "^9.2.1",
+    "cross-env": "^10.1.0",
+    "electron": "^41.2.1",
+    "electron-builder": "^26.8.1",
+    "vite": "^8.0.8"
+  }
+}
